@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../data.service';
 import { Observable } from 'rxjs';
+import { RestService } from '../rest.service';
 import { trigger,style,transition,animate,keyframes,query,stagger } from '@angular/animations';
 
 @Component({
@@ -32,13 +33,23 @@ import { trigger,style,transition,animate,keyframes,query,stagger } from '@angul
   ]
 })
 export class UsersComponent implements OnInit {
-  users$:Object;
+  users$:any=[];
 
-  constructor(private data:DataService) { }
+  constructor(private data:DataService,public rest:RestService) { }
 
   ngOnInit() {
     this.data.getUsers().subscribe(
       data => this.users$ = data 
+    );
+  }
+
+  delete(id) {
+    this.users$ = this.users$.filter(h => h.id !== id);
+    this.rest.deleteUser(id).subscribe(res => {
+          this.data.getUsers();
+          }, (err) => {
+          console.log(err);
+        }
     );
   }
 
