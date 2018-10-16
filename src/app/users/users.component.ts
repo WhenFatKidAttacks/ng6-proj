@@ -34,7 +34,7 @@ import { trigger,style,transition,animate,keyframes,query,stagger } from '@angul
 })
 export class UsersComponent implements OnInit {
   users$:any=[];
-
+  hide$:any=[];
   constructor(private data:DataService,public rest:RestService) { }
 
   ngOnInit() {
@@ -51,6 +51,13 @@ export class UsersComponent implements OnInit {
           console.log(err);
         }
     );
+  }
+
+  edit(name:any){
+      setTimeout(function() {
+        name.editable=true;
+        name.editableBtn=true;
+    }, 1000);
   }
 
 }
