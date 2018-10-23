@@ -4,7 +4,7 @@
   <mat-table [dataSource]="dataSource">
     <ng-container matColumnDef="name">
       <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
-      <mat-cell *matCellDef="let data"> {{data.name}} </mat-cell>
+      <mat-cell *matCellDef="let data"> <a routerLink="/details/{{data.id}}">{{data.name}}</a> </mat-cell>
     </ng-container>
     <ng-container matColumnDef="email">
       <mat-header-cell *matHeaderCellDef> E-Mail </mat-header-cell>
@@ -21,4 +21,7 @@
     <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
     <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
   </mat-table>
+
+  <mat-paginator [pageSizeOptions]="[3, 6, 9, 12]">
+  </mat-paginator>
 </div>

@@ -4,6 +4,7 @@ import { UsersComponent } from './users/users.component';
 import { DetailsComponent } from './details/details.component';
 import { PostsComponent } from './posts/posts.component';
 import { TableComponent } from './table/table.component';
+import { DataTableComponent } from './data-table/data-table.component';
 
 const routes: Routes = [
   {
