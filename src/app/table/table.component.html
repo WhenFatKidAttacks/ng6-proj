@@ -1,6 +1,9 @@
 <h1>Tables</h1>
 
 <div>
+  <mat-form-field style="width: 100%">
+    <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+  </mat-form-field>
   <mat-table [dataSource]="dataSource">
     <ng-container matColumnDef="name">
       <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
@@ -22,6 +25,6 @@
     <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
   </mat-table>
 
-  <mat-paginator [pageSizeOptions]="[3, 6, 9, 12]">
+  <mat-paginator [pageSizeOptions]="[3, 6, 9, 12]" showFirstLastButtons>
   </mat-paginator>
 </div>

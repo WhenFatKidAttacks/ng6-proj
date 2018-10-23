@@ -10,7 +10,7 @@ import { DetailsComponent } from './details/details.component';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TableComponent } from './table/table.component';
-import {MatButtonModule, MatCheckboxModule,MatTableModule,MatPaginatorModule,MatSortModule} from '@angular/material';
+import {MatButtonModule, MatCheckboxModule,MatTableModule,MatPaginatorModule,MatSortModule, MatFormFieldModule,MatInputModule} from '@angular/material';
 import { DataService } from './data.service';
 import { DataTableComponent } from './data-table/data-table.component';
 
@@ -33,7 +33,9 @@ import { DataTableComponent } from './data-table/data-table.component';
     MatCheckboxModule,
     MatTableModule,
     MatPaginatorModule,
-    MatSortModule
+    MatSortModule,
+    MatFormFieldModule,
+    MatInputModule
   ],
   providers: [DataService],
   bootstrap: [AppComponent]

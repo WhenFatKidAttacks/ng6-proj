@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { DataService } from '../data.service';
 import { Observable } from 'rxjs';
 import {DataSource} from '@angular/cdk/collections';
@@ -12,12 +12,13 @@ import { MatPaginator, MatSort, MatTableDataSource } from '@angular/material';
 })
 export class TableComponent implements OnInit {
 
- // @ViewChild(MatPaginator) paginator: MatPaginator;
-  //@ViewChild(MatSort) sort: MatSort;
+  @ViewChild(MatPaginator) paginator: MatPaginator;
+  @ViewChild(MatSort) sort: MatSort;
   
   dataSource = new UserDataSource(this.data);
   displayedColumns = ['name', 'email', 'phone', 'company'];
-  //dataSource2: MatTableDataSource<DataService>;
+  dataSource2: MatTableDataSource<DataService>;
+  tempdata=[];
   
   constructor(private data:DataService) { 
     //let users:DataService[] =[];
@@ -25,8 +26,11 @@ export class TableComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.data.getUsers()
+    .subscribe(res => this.tempdata = res);
+    this.dataSource2 = new MatTableDataSource(this.tempdata);
   }
-/*
+
   ngAfterViewInit() {
     this.dataSource2.paginator = this.paginator;
     this.dataSource2.sort = this.sort;
@@ -36,7 +40,7 @@ export class TableComponent implements OnInit {
     filterValue = filterValue.trim(); // Remove whitespace
     filterValue = filterValue.toLowerCase(); // Datasource defaults to lowercase matches
     this.dataSource2.filter = filterValue;
-  }*/
+  }
 
 }
 
