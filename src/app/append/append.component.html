@@ -1,0 +1,37 @@
+<h1>Append</h1>
+
+<div>
+  <form [formGroup]="form">
+      <table id="tableProd">
+        <tr>
+          <th>
+            Parts
+            <button style="border:none;" (click)="addField()">
+              <i class="material-icons">
+                add
+              </i>
+            </button>
+          </th>
+          <th>
+            Quantity
+          </th>
+        </tr>
+        <div formArrayName="items">
+            <div *ngFor="let unit of form.controls.items.controls; let i=index">
+              <tr [formGroupName]="i">
+                <th>
+                  <mat-form-field style="width: 60%">
+                    <input matInput formControlName="parts">
+                  </mat-form-field>
+                </th>
+                <th>
+                  <mat-form-field style="width: 20%">
+                    <input matInput formControlName="qnty">
+                  </mat-form-field>
+                </th>
+              </tr>
+            </div>
+        </div>
+      </table>
+  </form>
+</div>

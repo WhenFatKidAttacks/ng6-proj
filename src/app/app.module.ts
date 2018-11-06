@@ -10,9 +10,11 @@ import { DetailsComponent } from './details/details.component';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TableComponent } from './table/table.component';
-import {MatButtonModule, MatCheckboxModule,MatTableModule,MatPaginatorModule,MatSortModule, MatFormFieldModule,MatInputModule} from '@angular/material';
+import {MatButtonModule, MatCheckboxModule,MatTableModule,MatPaginatorModule,MatSortModule, MatFormFieldModule,MatInputModule,MatCardModule} from '@angular/material';
 import { DataService } from './data.service';
 import { DataTableComponent } from './data-table/data-table.component';
+import { AppendComponent } from './append/append.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,8 @@ import { DataTableComponent } from './data-table/data-table.component';
     UsersComponent,
     DetailsComponent,
     TableComponent,
-    DataTableComponent
+    DataTableComponent,
+    AppendComponent
   ],
   imports: [
     BrowserModule,
@@ -35,7 +38,10 @@ import { DataTableComponent } from './data-table/data-table.component';
     MatPaginatorModule,
     MatSortModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatCardModule
   ],
   providers: [DataService],
   bootstrap: [AppComponent]

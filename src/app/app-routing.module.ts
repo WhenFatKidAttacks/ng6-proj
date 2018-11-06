@@ -5,6 +5,7 @@ import { DetailsComponent } from './details/details.component';
 import { PostsComponent } from './posts/posts.component';
 import { TableComponent } from './table/table.component';
 import { DataTableComponent } from './data-table/data-table.component';
+import { AppendComponent } from './append/append.component';
 
 const routes: Routes = [
   {
@@ -23,6 +24,10 @@ const routes: Routes = [
     path:'table',
     component:TableComponent
   },
+  {
+    path:'append',
+    component:AppendComponent
+  }
 ];
 
 @NgModule({
